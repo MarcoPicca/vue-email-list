@@ -4,20 +4,17 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            newEmail: '',
             newEmails: [],
         }
     },
 
     methods: {
         getNewEmail(){
-            for (let i=0; i < 10; i++) {
+            for (let index=0; index < 10; index++) {
                 
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then(
                     (response) => {
-                        console.log(response);
-                        // this.newEmails.push(response.data.response);
-                        this.newEmail = response.data.response;
+                        this.newEmails.push(response.data.response);
                     });
                 
             }
